@@ -1,0 +1,46 @@
+.myShadow {
+  -webkit-box-shadow: 0px 4px 20px -15px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 4px 20px -15px rgba(0,0,0,1);
+  box-shadow: 0px 4px 20px -15px rgba(0,0,0,1);
+  background: #fafafa;
+}
+
+.colorLayer {
+  color: #fa4251;
+}
+
+.gmd {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -ms-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.btn-xl-n {
+    text-transform: uppercase;
+    padding: .6rem 1.2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    border-radius: 5rem;
+    border-color: #fa4251;
+    border-width: .1rem;
+    color: black;
+  }
+    
+  .btn-xl-n:hover {
+    text-transform: uppercase;
+    padding: .6rem 1.2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    border-radius: 5rem;
+    border-color: #e20a1c;
+    border-width: .1rem;
+    color: black;
+  }
+
+  agm-map {
+    height: 500px;
+  }

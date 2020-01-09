@@ -1,0 +1,119 @@
+<!-- Header Screen -->
+<nav class="navbar navbar-expand-md navbar-light myShadow">
+    <div class="container">
+        <a class="navbar-brand" style="color:#fa4251;" [routerLink]="['/']">
+            <b><span style="font-size: 30px;">Trunkpool</span></b>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/booking']"><b>Booking History</b></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br><br>
+
+<!-- Main Screen -->
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-8">
+
+        <div style="padding-bottom: 20px; font-size: 20px;"><b>80 Vehicles Found</b></div>
+            
+        <div class="gmd">
+            <agm-map [latitude]="lat" [longitude]="long" [zoom]="11" (mapClick)="onChoseLocation($event)">
+                <div *ngFor='let truck of truckData'>
+                    <agm-marker [latitude]="truck.lat" [longitude]="truck.long" [iconUrl]="iconUrl" (markerClick)="setTruckDetails(truck.vehicleNumber, truck.location)"></agm-marker>
+                </div>
+            </agm-map>
+        </div>
+
+        </div>
+
+        <br>
+        <br>
+
+        <div class="col-md-4">
+            
+            <div class="card gmd" style="margin-top: 48px;">
+                <div class="card-body">
+                    <h3 class="card-title"><b>Truck Details</b></h3>
+                    <p class="card-text">
+                        <i class="fas fa-truck"></i> - {{setVehicleNumber}}
+                        <br>
+                        <i class="fas fa-map-marker-alt"></i> - {{setLocation}}
+                    </p>
+                    <a class="btn btn-xl-n" data-toggle="modal" data-target="#addBooking">Book Now!</a>
+                </div>
+            </div>
+
+            <div style="padding-top: 8px; font-size: 14px;">*Pick one vehicle to book!</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Footer Screen -->
+
+<br><br>
+
+<footer class="py-5" style="background-color: #f8f8f8">
+    <div class="container">
+      <p class="small">Copyright <span class="colorLayer">&copy; Vaibhav Udaywal </span></p>
+    </div>
+</footer>
+
+<!-- modal -->
+<div class="modal fade" id="addBooking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><b>Booking Details</b></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Customer name</label>
+                    <input type="text" class="form-control" [(ngModel)]="customerName" #item="ngModel"
+                        name="itemName" aria-describedby="itemNameHelp" placeholder="Please enter your name"
+                        required autofocus>
+                    <br>
+                    <label>Email address</label>
+                    <input type="text" class="form-control" [(ngModel)]="customerEmail" #item="ngModel"
+                    name="itemName" aria-describedby="itemNameHelp" placeholder="Please enter your email"
+                    required autofocus>
+                    <br>
+                    <label>Vehicle Number</label>
+                    <input type="text" class="form-control" [(ngModel)]="setVehicleNumber" #itemNew="ngModel"
+                        name="itemDescription" aria-describedby="itemDescriptionHelp" disabled>
+                    <br>
+                    <label>Location</label>
+                    <input type="text" class="form-control" [(ngModel)]="setLocation" #itemNew="ngModel"
+                        name="itemDescription" aria-describedby="itemDescriptionHelp" disabled>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="addBooking()" [disabled]="!item.valid"
+                    data-dismiss="modal">Book now!</button>
+            </div>
+        </div>
+    </div>
+</div>

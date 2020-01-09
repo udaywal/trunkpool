@@ -1,0 +1,66 @@
+<!-- Header Screen -->
+
+<nav class="navbar navbar-expand-md navbar-light myShadow">
+    <div class="container">
+        <a class="navbar-brand" style="color:#fa4251;" [routerLink]="['/']">
+            <b><span style="font-size: 30px;">Trunkpool</span></b>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <b>Hello {{bookingData.customerName}}!</b>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br><br>
+
+<!-- Main Screen -->
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            
+            <div class="card border-light mb-3 gmd text-center">
+                <div class="card-body">
+                    <h3>Your Bookings!</h3>
+                </div>
+            </div>
+            <br>
+            <div class="card border-light gmd mb-3">
+                <div class="card-body">
+                   <p>
+                       <b>Customer Name:</b> {{bookingData.customerName}}<br>
+                       <b>Customer Email:</b> {{bookingData.customerEmail}}<br>
+                       <b>Vehicle Number:</b> {{bookingData.setVehicleNumber}}<br>
+                       <b>Location:</b> {{bookingData.setLocation}}
+                   </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
+
+    </div>
+</div>
+
+<!-- Footer Screen -->
+
+<br><br>
+
+<footer class="py-5" style="background-color: #f8f8f8">
+    <div class="container">
+      <p class="small">Copyright <span class="colorLayer">&copy; Vaibhav Udaywal </span></p>
+    </div>
+</footer>
